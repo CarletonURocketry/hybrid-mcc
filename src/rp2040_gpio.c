@@ -117,22 +117,6 @@ static const struct gpio_operations_s gpout_ops =
 
 static const uint32_t g_gpiooutputs[BOARD_NGPIOOUT] =
 {
-  GPIO_XV1,
-  GPIO_XV2,
-  GPIO_XV3,
-  GPIO_XV4,
-  GPIO_XV5,
-  GPIO_XV6,
-  GPIO_XV7,
-  GPIO_XV8,
-  GPIO_XV9,
-  GPIO_XV10,
-  GPIO_XV11,
-  GPIO_XV12,
-  GPIO_HEATER,
-  GPIO_SV2,
-  GPIO_SV1,
-  GPIO_IGNITE,
 };
 
 static struct rp2040gpio_dev_s g_gpout[BOARD_NGPIOOUT];
@@ -151,7 +135,6 @@ static const struct gpio_operations_s gpin_ops =
 
 static const uint32_t g_gpioinputs[BOARD_NGPIOIN] =
 {
-  GPIO_IN1
 };
 
 static struct rp2040gpio_dev_s g_gpin[BOARD_NGPIOIN];
@@ -170,7 +153,22 @@ static const struct gpio_operations_s gpint_ops =
 
 static const uint32_t g_gpiointinputs[BOARD_NGPIOINT] =
 {
-  GPIO_IRQPIN1,
+  GPIO_XV1,
+  GPIO_XV2,
+  GPIO_XV3,
+  GPIO_XV4,
+  GPIO_XV5,
+  GPIO_XV6,
+  GPIO_XV7,
+  GPIO_XV8,
+  GPIO_XV9,
+  GPIO_XV10,
+  GPIO_XV11,
+  GPIO_XV12,
+  GPIO_HEATER,
+  GPIO_SV2,
+  GPIO_SV1,
+  GPIO_IGNITE,
 };
 
 static struct rp2040gpint_dev_s g_gpint[BOARD_NGPIOINT];
@@ -402,9 +400,10 @@ int rp2040_dev_gpio_init(void)
 
       rp2040_gpio_init(g_gpiointinputs[i]);
 
-      /* pull-up = false : pull-down = true */
+      /* pull-up = true : pull-down = false */
 
-      rp2040_gpio_set_pulls(g_gpiointinputs[i], false, true);
+      // TODO: verify that interrupt is on rising AND falling edge?
+      rp2040_gpio_set_pulls(g_gpiointinputs[i], true, false);
 
       pincount++;
     }
