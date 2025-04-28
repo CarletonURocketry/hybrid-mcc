@@ -286,7 +286,8 @@ static int gpint_attach(struct gpio_dev_s *dev,
 
   rp2040_gpio_disable_irq(irq);
   ret = rp2040_gpio_irq_attach(irq,
-                               RP2040_GPIO_INTR_EDGE_LOW,
+                               RP2040_GPIO_INTR_EDGE_LOW |
+                               RP2040_GPIO_INTR_EDGE_HIGH,
                                rp2040gpio_interrupt,
                                &g_gpint[rp2040gpint->rp2040gpio.id]);
   if (ret < 0)
@@ -400,10 +401,9 @@ int rp2040_dev_gpio_init(void)
 
       rp2040_gpio_init(g_gpiointinputs[i]);
 
-      /* pull-up = true : pull-down = false */
+      /* pull-up = false : pull-down = true */
 
-      // TODO: verify that interrupt is on rising AND falling edge?
-      rp2040_gpio_set_pulls(g_gpiointinputs[i], true, false);
+      rp2040_gpio_set_pulls(g_gpiointinputs[i], false, true);
 
       pincount++;
     }
