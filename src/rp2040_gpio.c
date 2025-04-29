@@ -60,8 +60,8 @@
 #define GPIO_XV11   12
 #define GPIO_XV12   13
 #define GPIO_HEATER 22
-#define GPIO_SV2    27
-#define GPIO_SV1    28
+#define GPIO_FIRE   27
+#define GPIO_QD     28
 #define GPIO_IGNITE 26
 
 /****************************************************************************
@@ -166,8 +166,8 @@ static const uint32_t g_gpiointinputs[BOARD_NGPIOINT] =
   GPIO_XV11,
   GPIO_XV12,
   GPIO_HEATER,
-  GPIO_SV2,
-  GPIO_SV1,
+  GPIO_FIRE,
+  GPIO_QD,
   GPIO_IGNITE,
 };
 
