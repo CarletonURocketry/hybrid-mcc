@@ -405,9 +405,9 @@ int rp2040_dev_gpio_init(void)
 
       rp2040_gpio_init(g_gpiointinputs[i]);
 
-      /* pull-up = false : pull-down = true */
+      /* pull-up = true : pull-down = false */
 
-      rp2040_gpio_set_pulls(g_gpiointinputs[i], false, true);
+      rp2040_gpio_set_pulls(g_gpiointinputs[i], true, false);
 
       pincount++;
     }
