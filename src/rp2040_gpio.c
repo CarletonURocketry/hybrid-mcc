@@ -47,22 +47,24 @@
  * Defined based on the actuator they control.
  */
 
-#define GPIO_XV1    2
-#define GPIO_XV2    3
-#define GPIO_XV3    4
-#define GPIO_XV4    5
-#define GPIO_XV5    6
-#define GPIO_XV6    7
-#define GPIO_XV7    8
-#define GPIO_XV8    9
-#define GPIO_XV9    10
-#define GPIO_XV10   11
-#define GPIO_XV11   12
-#define GPIO_XV12   13
-#define GPIO_HEATER 22
-#define GPIO_FIRE   27
-#define GPIO_QD     28
-#define GPIO_IGNITE 26
+#define GPIO_XV1          2
+#define GPIO_XV2          3
+#define GPIO_XV3          4
+#define GPIO_XV4          5
+#define GPIO_XV5          6
+#define GPIO_XV6          7
+#define GPIO_XV7          8
+#define GPIO_XV8          9
+#define GPIO_XV9          10
+#define GPIO_XV10         11
+#define GPIO_XV11         12
+#define GPIO_XV12         13
+#define GPIO_HEATER       22
+#define GPIO_FIRE         14
+#define GPIO_QD           15
+#define GPIO_IGNITE       28
+#define GPIO_ARM_VALVES   27
+#define GPIO_ARM_IGNITION 28
 
 /****************************************************************************
  * Private Types
@@ -169,6 +171,8 @@ static const uint32_t g_gpiointinputs[BOARD_NGPIOINT] =
   GPIO_FIRE,
   GPIO_QD,
   GPIO_IGNITE,
+  GPIO_ARM_VALVES,
+  GPIO_ARM_IGNITION,
 };
 
 static struct rp2040gpint_dev_s g_gpint[BOARD_NGPIOINT];
