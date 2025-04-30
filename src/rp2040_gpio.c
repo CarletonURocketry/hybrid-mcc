@@ -64,7 +64,7 @@
 #define GPIO_QD           15
 #define GPIO_IGNITE       28
 #define GPIO_ARM_VALVES   27
-#define GPIO_ARM_IGNITION 28
+#define GPIO_ARM_IGNITION 26
 
 /****************************************************************************
  * Private Types
