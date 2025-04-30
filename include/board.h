@@ -67,7 +67,7 @@
 #define BOARD_GPIO_LED_PIN      25
 #define BOARD_NGPIOOUT          0
 #define BOARD_NGPIOIN           0
-#define BOARD_NGPIOINT          16
+#define BOARD_NGPIOINT          18
 
 /* LED definitions **********************************************************/
 
