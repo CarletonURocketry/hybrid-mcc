@@ -32,6 +32,7 @@
 #include <nuttx/fs/fs.h>
 
 #include <arch/board/board.h>
+#include <nuttx/board.h>
 
 #include "rp2040_pico.h"
 
@@ -76,5 +77,9 @@ int rp2040_bringup(void)
     }
 #endif
 
-  return OK;
+#ifdef CONFIG_ARCH_LEDS
+    board_autoled_initialize();
+#endif
+
+    return OK;
 }

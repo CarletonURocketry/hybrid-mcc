@@ -102,7 +102,7 @@
 #define LED_STACKCREATED  1  /* Idle stack created      ON     */
 #define LED_INIRQ         2  /* In an interrupt         N/C    */
 #define LED_SIGNAL        2  /* In a signal handler     N/C    */
-#define LED_ASSERTION     2  /* An assertion failed     N/C    */
+#define LED_ASSERTION     3  /* An assertion failed     N/C    */
 #define LED_PANIC         3  /* The system has crashed  FLASH  */
 #undef  LED_IDLE             /* Not used                       */
 

@@ -116,23 +116,10 @@ void board_autoled_initialize(void)
 
 void board_autoled_on(int led)
 {
-  bool ledon = true;
+  if (led != LED_STARTED && led != LED_PANIC)
+    return;
 
-  switch (led)
-    {
-      case 0:  /* LED Off */
-        ledon = false;
-        break;
-
-      case 2:  /* LED No change */
-        return;
-
-      case 1:  /* LED On */
-      case 3:  /* LED On */
-        break;
-    }
-
-  rp2040_gpio_put(GPIO_LED1, ledon); /* High illuminates */
+  rp2040_gpio_put(GPIO_LED1, true); /* High illuminates */
 }
 
 /****************************************************************************
@@ -152,16 +139,8 @@ void board_autoled_on(int led)
 
 void board_autoled_off(int led)
 {
-  switch (led)
-    {
-      case 0:  /* LED Off */
-      case 1:  /* LED Off */
-      case 3:  /* LED Off */
-        break;
-
-      case 2:  /* LED No change */
-        return;
-    }
+  if (led != LED_STARTED && led != LED_PANIC)
+    return;
 
   rp2040_gpio_put(GPIO_LED1, false); /* High illuminates */
 }
